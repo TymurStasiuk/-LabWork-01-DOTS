@@ -1,0 +1,30 @@
+def cocktail_shaker_sort(arr):
+    n = len(arr)
+    left, right = 0, n - 1
+    swapped = True
+
+    while swapped:
+        swapped = False
+        for i in range(left, right):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                swapped = True
+
+        for i in range(right - 1, left, -1):
+            if arr[i - 1] > arr[i]:
+                arr[i], arr[i - 1] = arr[i - 1], arr[i]
+                swapped = True
+
+        print(*arr)
+        right -= 1
+        left += 1
+
+
+def main():
+    n = int(input())
+    arr = list(map(int, input().split()))
+    cocktail_shaker_sort(arr)
+
+
+if __name__ == "__main__":
+    main()
