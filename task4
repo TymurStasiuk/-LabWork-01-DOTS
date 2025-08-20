@@ -1,0 +1,18 @@
+n = int(input())
+a = list(map(int, input().split()))
+
+a.sort()
+d = a[1] - a[0] if n > 1 else 0
+ok = True
+
+for i in range(2, n):
+    if a[i] - a[i - 1] != d:
+        ok = False
+        break
+
+if ok:
+    print("YES")
+    print(d)
+else:
+    print("NO")
+    print(a[-1] - a[0])
