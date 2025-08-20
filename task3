@@ -1,0 +1,15 @@
+import sys
+
+n, M, k = map(int, sys.stdin.read().split())
+
+cnt = [0] * M
+for i in range(1, n + 1):
+    val = (42 * i * i + 37 * i + 25) % M
+    cnt[val] += 1
+
+s = 0
+for i in range(M):
+    s += cnt[i]
+    if s >= k:
+        print(i)
+        break
