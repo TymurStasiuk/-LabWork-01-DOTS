@@ -1,0 +1,13 @@
+from fractions import Fraction
+
+n = int(input())
+fractions = []
+
+for _ in range(n):
+    p, q = map(int, input().split())
+    fractions.append((Fraction(p, q), p, q))
+
+fractions.sort(key=lambda x: x[0])
+
+for _, p, q in fractions:
+    print(p, q)
